@@ -1,0 +1,39 @@
+.userinfor{
+    
+    width:100%;
+    height:fit-content;
+    display:flex;
+    flex-direction:column;
+}
+.userprofile{
+    position:relative;
+}
+.portrait{
+    content:"";
+    height:120px;
+    width:120px;
+    border-radius:50%;
+    position:relative;
+    border-top:3px solid red;
+    border-bottom:3px solid blue;
+}
+.uname{
+    position:absolute;
+    top:25%;
+    left:45%;
+    color:green;
+    background-color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.update{
+    width:140px;
+}
+.inv{
+    display:none;
+    position:absolute;
+    top:23%;
+    left:35%;
+    width:clamp(350px,40vw);
+}

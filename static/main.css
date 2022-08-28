@@ -1,0 +1,82 @@
+body{
+    padding-top:20vh;
+    
+    /* background: #424242; */
+}
+.container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width:390px;
+    /* color:#ffffff; */
+}
+.error{
+    width:80%;
+    background-color:#cc1200;
+}
+
+.login{
+    display:flex;
+    flex-direction:column;
+    padding-bottom:10px;
+    justify-content:space-between;  
+}
+fieldset{
+    /* border:4px solid #000000; */
+    border-radius:8px;
+
+}
+.login>label{
+    color:blueviolet;
+    font-size:1.3rem;
+}
+.login>input{
+    border-radius:5px;
+    height:30px;
+    padding-left:5px;
+}
+.butt{
+    display:flex;
+    justify-content:space-between;
+}
+.butt>.register{
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+
+}
+.butt>input,.butt>.register{
+    
+    border-radius:5px;
+    background-color:#4A148C;
+    border:none;
+    height:38px;
+    width:85px;
+    color:#ffffff;
+
+}
+.butt>a{
+    color:#ff0000;
+}
+@media screen and (max-width:560px){
+    h1{
+        font-size:1.4rem;
+    }
+    form{
+    width:350px;
+    /* color:#ffffff; */
+    }
+    .butt{
+        justify-content:space-between;
+    }
+    .butt>input,.butt>.register{
+        width:75px;
+        font: size 1.1rem;
+    }
+
+}
