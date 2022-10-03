@@ -69,10 +69,6 @@ if($db){
         <label for="number" class="form-label">PhoneNumber</label>
         <input type="string" class="form-control" id="number" value="<?php echo $item['tel'];?>">
         </div>
-        <div class="mb-1">
-        <label for="nin" class="form-label">NIN</label>
-        <input type="string" class="form-control" id="nin" value="<?php echo $item['nin'];?>">
-        </div>
         <a href="" class="btn btn-primary update">update</a>
         <a href="" class="btn btn-secondary ms-5 update">Cancel</a>
     </form>

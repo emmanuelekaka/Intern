@@ -32,11 +32,11 @@
     padding:7px 20px;
 }
 .navbar div a:first-child{
-    color:blue;
+    /* color:blue; */
     font-size:1.3rem;
 }
 .navbar div a:last-child{
-    color:rgb(125, 185, 35);
+    /* color:rgb(125, 185, 35); */
     font-size:1.3rem;
 }
 h2{

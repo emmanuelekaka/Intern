@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../static/stat.css">
-<?php include_once('./header.php')?>
+<?php include_once('./header.php');?>
+<div class="ref d-none" ><?php echo $_SESSION['ref'];?></div>
 <div class="table p-3">
     <h4 class="text-success mb-2 p-3 bg-light border rounded-2">STATISTICS</h4>
     <div>
@@ -26,7 +27,7 @@
                         <option value=11>Nov</option>
                         <option value=12 id="d">Dec</option>
                     </select>
-                <button class="btn btn-danger border-0 rounded-circle"><i class="fa fa-search"></i></button>
+                <button class="btn btn-danger border-0 rounded-circle"><i class="fa fa-search" type="submit" id="search"></i></button>
         </form>
             </div>
             

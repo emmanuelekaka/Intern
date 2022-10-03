@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BCC</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../static/dash.css" type="text/css">
     <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
@@ -22,13 +22,14 @@
             <ul class="side-item2">
                
                
-                <li><a href="./statistics">Incomes</a></li>
-                <li><a href="./transactions">Businesses Added</a></li>
+                <li><i class="fa fa-money-bill me-2"></i><a href="./statistics">Incomes</a></li>
+                <li><i class="fa fa-line-chart me-2"></i><a href="./transactions">Businesses</a></li>
                 
                  <?php if ($_SESSION['previlleges']=="admin"){?>
-                    <li><a href="./useradmin">Users</a></li>
-                    <li><a href="./adminmore">More</a></li>
-                    <li><a href="./adminlogs">Logs</a></li>
+                    <li><i class="fa fa-users me-2"></i><a href="./useradmin">Users</a></li>
+                
+                    <li><i class="fa fa-angles-right me-2"></i><a href="./adminmore">More</a></li>
+                    <li><i class="fa fa-magic-wand-sparkles me-2"></i><a href="./adminlogs">Logs</a></li>
                  <?php }?>
 
             </ul>
@@ -36,7 +37,7 @@
         </div>
         <div class="main_main">
             <div class="header">
-                <p><a href="./dashboard.php">AGENT</a></p>
+                <p><a href="./dashboard.php">AGENT PANEL</a></p>
                 
                 <div>
                     <a href="../login.php" class="logout">Logout</a>

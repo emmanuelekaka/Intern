@@ -12,14 +12,22 @@ if($db){
         //free results from memory
         mysqli_free_result($result);
         //close database
-        mysqli_close($db);
+       
     }
 
 }else{
   echo "server error";
 }
-$data = file_get_contents("./business.json");
-$data = json_decode($data, true);
+  $sql = "SELECT id,business,Contact,Location, daily_sales,referal,time from business;";
+  $output = mysqli_query($db, $sql);
+  if ($output){
+      if (mysqli_num_rows($output)>0){
+          $data =mysqli_fetch_all($output, MYSQLI_ASSOC);
+          mysqli_free_result($output);
+      }
+  }
+  mysqli_close($db);
+
 
 ?>
 
@@ -62,11 +70,7 @@ $data = json_decode($data, true);
                     </tr>
                   <?php } ?>
                 <?php endforeach;?>
-                <!-- <th scope="row">Banda Community Center</th>
-                    <td>+256783456473</td>
-                    <td>Banda</td>
-                    <td>shs.1000000</td>
-                <td><a href="">View Performance</a></td> -->
+                
                 
              
               </tbody>

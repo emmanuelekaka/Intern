@@ -10,7 +10,7 @@ const updateName = document.querySelector('.updateName')
 
 // edituri.addEventListener('click',()=>{
 //     editName.innerText = edit.innerText
-//     //Below are under  
+//     Below are under  
 //     updateName.value = edit.innerText
 
 //     adjust.style.display="initial"

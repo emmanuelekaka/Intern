@@ -1,8 +1,19 @@
 const dream = document.getElementById('dream')
 const ctx = document.getElementById('pie')
 const mth = document.querySelector('#month').value
+const ref = document.querySelector('.ref').innerText
 
-const yr = document.querySelector('#yr').value
+const yrr = document.querySelector('#yr').value
+
+// const search = document.querySelector('#search')
+// search.addEventListener('click',()=>{
+//   const mths = document.querySelector('#month').value
+//   const yrs = document.querySelector('#yr').value
+//   mth = mths
+//   yr = yrs
+//   console.log(mth)
+//   console.log(yr)
+// } )
 
 
 $(document).ready(function(){
@@ -11,12 +22,11 @@ $(document).ready(function(){
     type:'GET',
     success:function(response){
     var data = JSON.parse(response);
-    let list=[];
     // getting the days in a month
     const daysInMonth = (month,year)=>{
         return new Date(year, month,0).getDate()
     }
-    const days = daysInMonth(yr,mth)
+    const days = daysInMonth(mth,yrr)
     let xValues=[]
     let yValues=[]
     for (let m=1; m<=days;m++){
@@ -29,8 +39,9 @@ $(document).ready(function(){
         const yr = parseInt(item.time.slice(0,4));
         const mnth = parseInt(item.time.slice(6,7));
         const dy = parseInt(item.time.slice(9,10));
-        if (item.referal ==="To04fc" && yr===2022 && mnth===8){
+        if (item.referal === ref && yr===parseInt(yrr) && mnth===parseInt(mth)){
             yValues[dy]=parseInt(item.daily_sales)
+            console.log(yValues[dy])
         }
     })
     // charting here

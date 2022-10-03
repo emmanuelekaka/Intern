@@ -1,74 +1,29 @@
-<?php include_once('./header.php')?>
-<?php
-$db = mysqli_connect('localhost', 'root', '','intern');
-if($db){
-    $sql = "SELECT id,username,email,referal, referalCode,status,adminprevillages from users;";
-    if (mysqli_query($db, $sql)){
-        $result = mysqli_query($db, $sql);
-        $serv =mysqli_fetch_all($result, MYSQLI_ASSOC);
-        //free results from memory
-        mysqli_free_result($result);
-        //close database
-        mysqli_close($db);
-    }else{
-        echo "mysqli_error executing the query";
-    }          
-
-}else{
-    echo "Error connecting to the database";
-}
-
-//deleting
-?>
+<?php include_once('./header.php');?>
 <div class="stable">
   <div class="filter d-flex mb-3 p-3 bg-light border rounded-2">
     <h4 class="col-8 fw-bolder text-success">User Details</h4>
-    <input type="search" placeholder="search" class="col-4 custom rounded-pill ps-2">
+    <input type="search" placeholder="search" id="search" class="col-4 custom rounded-pill ps-2">
   </div>
   
 <table class="table p-3 bg-light border rounded-2">
-          <thead>
-            <tr>
-              
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">Referred</th>
-              <th scope="col">Account Status</th>
-              <th scope="col">User Code</th>
-              <th scope="col">Previllages</th>
-              <th scope="col">UserDetail</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody >
-            <?php foreach($serv as $i):?>
-                <tr class="min">
-                    <td><?php echo $i['username'];?></td>
-                    <td><?php echo $i['email'];?></td>
-                    <td><?php echo $i['referal'];?></td>
-                    <td><?php echo $i['status'];?></td>
-                    <td><?php echo $i['referalCode'];?></td>
-                    <td><?php echo $i['adminprevillages'];?></td>
-                    <!-- Button trigger modal -->
-                    <td><a href="" class="btn btn-success"data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</a> </td>
-                    <td><a href="#adjust" class="btn edit text-start"><i class="fa-solid fa-edit"></i> <p class="d-none toEdit"><?php echo $i['username'];?></p></a></td>
-
-                    <td>
-                      <form action="./delete.php" method="POST">
-                        <input  type="hidden" name = "id_del" value="<?php echo $i['id'];?>">
-                        <button type="submit" name= "delete" class="btn btn-transparent" ><i class="fa-solid fa-trash"></i></button>
-                      </form>
-                     
-                      
-                    </td>
-                </tr>
-                
-                
-            <?php endforeach;?>
-           
-          </tbody>
-        </table>
+  <thead>
+    <tr>
+      
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Referred</th>
+      <th scope="col">Account Status</th>
+      <th scope="col">User Code</th>
+      <th scope="col">Previllages</th>
+      <th scope="col">UserDetail</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody id="output">
+    
+  </tbody>
+</table>
         
         
         <!-- Modal -->
@@ -124,47 +79,47 @@ if($db){
     <div class="adjust " id="adjust">
       <h4 class="fw-bolder text-success p-3 bg-light border rounded-2">ADMIN APPROVAL</h4>
       <p class="querryName display-6 text-primary"></p>
-      <table class="table p-3 bg-light border rounded-2">
-          <thead>
-            
-              <tr>
-                <th scope="col">Assign Account Status</th>
-                <th scope="col">Assign Referal Code</th>
-                <th scope="col">Assign administrative  Previllages</th>
-                <th scope="col">Save</th>
-              </tr>
-            </thead>
-            <tbody>
-              <form action="./updateWzRef.php" method="post">
-                  <tr>
-                      <td>
-                        <select class="form-select" name="status">
-                          <option selected>select</option >
-                          <option value="Active">Active</option>
-                          <option value="Suspended">Suspended</option>
-                          <option value="Inactive">Inactive</option>
-                        </select>
-                      </td>
-                      <td><div class="generate">
-                        <input type="text" class="form-control" placeholder="AX56rY" name="ref"><i class="fa-solid fa-computer-mouse ms-3 text-primary gen"></i>
-                      </div></td>
-                      <td>
-                        <select class="form-select" name="previllage">
-                          <option selected>select</option>
-                          <option value="user">user</option>
-                          <option value="admin">admin</option>
-                        </select>
-                      </td>
-                      <!-- Updating fields to add in referal code. and previllages button -->
-                      <td>
-                        <input  type="hidden" name = "update" class="updateName">
-                        <button type="submit" name= "edit" class="btn btn-transparent" ><i class="fa-solid fa-folder text-primary"></i></button>
-                        
-                      </td>
-                  </tr>
-                </form>
-          </tbody>
-      </table>
+    <table class="table p-3 bg-light border rounded-2">
+        <thead>
+          
+            <tr>
+              <th scope="col">Assign Account Status</th>
+              <th scope="col">Assign Referal Code</th>
+              <th scope="col">Assign administrative  Previllages</th>
+              <th scope="col">Save</th>
+            </tr>
+          </thead>
+          <tbody>
+            <form action="./updateWzRef.php" method="post">
+                <tr>
+                    <td>
+                      <select class="form-select" name="status">
+                        <option selected>select</option >
+                        <option value="Active">Active</option>
+                        <option value="Suspended">Suspended</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </td>
+                    <td><div class="generate">
+                      <input type="text" class="form-control" placeholder="AX56rY" name="ref"><i class="fa-solid fa-computer-mouse ms-3 text-primary gen"></i>
+                    </div></td>
+                    <td>
+                      <select class="form-select" name="previllage">
+                        <option selected>select</option>
+                        <option value="user">user</option>
+                        <option value="admin">admin</option>
+                      </select>
+                    </td>
+                    <!-- Updating fields to add in referal code. and previllages button -->
+                    <td>
+                      <input  type="hidden" name = "update" class="updateName">
+                      <button type="submit" name= "edit" class="btn btn-transparent" ><i class="fa-solid fa-folder text-primary"></i></button>
+                      
+                    </td>
+                </tr>
+              </form>
+        </tbody>
+    </table>
     </div>
 
     
@@ -179,25 +134,35 @@ if($db){
 
 
 
-<!-- <script type="text/javascript">
-  $(document).ready(function(){
-    $("#search").keypress(function(){
+
+
+<script src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
       $.ajax({
-        type:'POST',
-        url:'',
-        data:{
-          name:$('#search').val(),
-        },
-        success:function(data){
-          $("output").html(data);
-
-        }
-      })
-    })
-  })
-
-
-</script> -->
-<script src="../js/adjust.js"></scrip>
-<script src="../js/refer.js"></>
-<?php include_once('./footer.php')?>
+                type:'GET',
+                url:'../db/search.php',
+                success:function(data){
+                  $("#output").html(data);
+                  
+                }
+      });
+      $("#search").keypress(function(){
+          $.ajax({
+                type:'POST',
+                url:'../db/search.php',
+                data:{
+                  name:$("#search").val(),
+                },
+                success:function(data){
+                  $("#output").html(data);
+                  
+                }
+          });
+      });
+      
+    });
+</script>
+<script src="../js/adjust.js"></script>
+<script src="../js/refer.js"></script>
+<?php include_once('./footer.php');?>

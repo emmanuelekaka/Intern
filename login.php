@@ -8,6 +8,7 @@ if($db){
         $username = mysqli_real_escape_string($db,$_POST['username']);
         $password = md5(mysqli_real_escape_string($db,$_POST['password']));
         $_SESSION['pass'] = $password;
+        
         //sql querry to search for the presence of the user in the database
         $sql = "SELECT * from users WHERE username = '$username' AND passcode='$password';";
         // $previlleges = "SELECT adminprevillages from users WHERE username = '$username' AND passcode='$password';";

@@ -119,6 +119,10 @@ body{
     align-items:start;
     justify-content:space-evenly;
 }
+.side-item2 li{
+    display:flex;
+    font-size: 1.2rem;
+}
 .side-item2 li a{
     text-decoration:none;
     display:block;
@@ -210,11 +214,11 @@ body{
     font-size:1.5rem;
 }
 .rim:nth-child(3){
-    background-image: url('../images/save.jpg');
+    background-image: url('../images/save.gif');
     /* background-attachment: fixed; */
-    /* background-size:100%; */
+    background-size:100% 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
     
 }
 
