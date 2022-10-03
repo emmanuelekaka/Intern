@@ -98,7 +98,7 @@ include('./db/registerdBcon.php');
                     <div class="input">
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-location"></i></span>
-                            <input type="text" name="locality" class="form-control" id="locality" placeholder="Banda" value="fdhjdfhj" >
+                            <input type="text" name="locality" class="form-control" id="locality" placeholder="Banda" >
                         </div>
                     </div>
                 </div>

@@ -14,12 +14,12 @@ const passcode = form.querySelector('input[name="passcode"]')
 //errorclasslist
 const setError = (element)=>{
     element.style.border="2px solid red"
-    console.log(element.value)
+    // console.log(element.value)
 }
 //clearError
 const clearError =(element)=>{
     element.style.border="3px solid #76FF03"
-    console.log(element.value)
+    // console.log(element.value)
 }
 //error boxes
 //validation
