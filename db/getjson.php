@@ -4,6 +4,7 @@
     $named = $_POST['name'];
     $last = $_POST['last'];
     $ref = $_POST['ref'];
+    
     // echo $named;
     // where referal=(SELECT referalCode from users where username='$named')
     if(empty($named)){
@@ -18,7 +19,6 @@
         $sql = "SELECT id,business,contact,Location, daily_sales, time from business WHERE referal = '$ref' AND time BETWEEN '$start' AND '$end';";
                 
     }
-   
     
     $result = mysqli_query($db, $sql);
     if ($result){

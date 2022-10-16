@@ -143,12 +143,9 @@ $("#month").keypress(function(event){
           yValues.push(0)
       }
       output.forEach(item=>{
-        const yr = item.time.slice(0,4);
-        const mnth = item.time.slice(6,7);
         const dy = parseInt(item.time.slice(8,10));
-        if (yr === yrr && mnth=== mth){
-            yValues[dy-1]=parseInt(item.daily_sales)
-        }
+        yValues[dy-1]=parseInt(item.daily_sales)
+      
       })
      
       let variable = document.querySelector('canvas')
