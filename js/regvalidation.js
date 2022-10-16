@@ -94,8 +94,10 @@ const validate = ()=>{
 form.addEventListener('submit',(e)=>{
     
     if(validate()===0){
+        console.log("Passed the condition")
 
     }else{
+        console.log("Hey you")
         e.preventDefault()
     }
 })

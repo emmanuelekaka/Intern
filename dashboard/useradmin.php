@@ -147,7 +147,8 @@
                   
                 }
       });
-      $("#search").keypress(function(){
+      // Executed during searching of a particular record
+      $("#search").keyup(function(){
           $.ajax({
                 type:'POST',
                 url:'../db/search.php',

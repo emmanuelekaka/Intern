@@ -31,6 +31,8 @@
                     <li><i class="fa fa-angles-right me-2"></i><a href="./adminmore">More</a></li>
                     <li><i class="fa fa-magic-wand-sparkles me-2"></i><a href="./adminlogs">Logs</a></li>
                  <?php }?>
+                 <li><i class="fa fa-user me-2"></i><a href="./userprofile.php">Profile</a></li>
+                <li><i class="fa fa-sign-out me-2"></i><a href="../login.php">Logout</a></li>
 
             </ul>
             <script src="../js/highlighter.js"></script>
@@ -39,11 +41,11 @@
             <div class="header">
                 <p><a href="./dashboard.php">AGENT PANEL</a></p>
                 
-                <div>
+                <!-- <div>
                     <a href="../login.php" class="logout">Logout</a>
                     <a href="./userprofile.php" class="profile"><i class="fas fa-user" id="icon-logo"></i>Profile</a>
 
-                </div>
+                </div> -->
                 
             </div>
             <div class="main_show">

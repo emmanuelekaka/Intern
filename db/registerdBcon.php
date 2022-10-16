@@ -22,9 +22,11 @@ if($db){
         // $counter = mysqli_num_rows($test);
         // if($counter==0){
         $sql = "INSERT INTO users(fname, lname, tel, email, nin, locality, referal, username, passcode) VALUES ('$fname','$lname', '$tel', '$email', '$nin', '$locality', '$referal', '$username', '$passcode')";
+        echo "Hey";
         if (mysqli_query($db, $sql)){
                 header('Location: ./login.php');
         }else{
+                echo "Failed";
                 echo "mysqli_error:".mysqli_error($db);
         }  
 
@@ -32,6 +34,6 @@ if($db){
         
              
 }else{
-    echo "Error connecting to the database";
+    echo "Error connecting .......";
 }
 ?>

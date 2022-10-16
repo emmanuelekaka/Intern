@@ -4,7 +4,8 @@ const editName = document.querySelector('.querryName')
 //div for editing user information
 const adjust = document.querySelector('.adjust')
 //link to the div that allows editing of information
-const edituri = document.querySelectorAll('.edit')
+const edituri = document.querySelectorAll('.edit>a')
+console.log(edituri)
 //input field for update
 const updateName = document.querySelector('.updateName')
 
@@ -15,9 +16,11 @@ const updateName = document.querySelector('.updateName')
 
 //     adjust.style.display="initial"
 // } )
-edituri.forEach(item=>{
+edituri.forEach((item)=>{
     item.addEventListener('click',()=>{
         const constraint = item.lastChild
+        console.log("HEy u")
+        
         editName.innerText = constraint.innerText
         
     //Below are under  
@@ -26,42 +29,29 @@ edituri.forEach(item=>{
         adjust.style.display="initial"
 } )
 })
-
-
 // searching
-const min = document.querySelectorAll('.min')
-const custome = document.querySelector('.custom')
-custome.addEventListener('keyup',(e)=>{
-    // console.log(e.target.value)
-    getElement(e.target.value)
-    
-
-
-})
+// const min = document.querySelectorAll('.min')
+// const custome = document.querySelector('.custom')
+// custome.addEventListener('keyup',(e)=>{
+//     // console.log(e.target.value)
+//     getElement(e.target.value)
+// })
 // min.forEach(item=>{
 //         console.log(item.firstElementChild.textContent)
        
 // })
 
-const getElement = (name)=>{
-    min.forEach(item=>{
-        console.log(item.firstChild.textContent)
-        if (name.toLowerCase().indexOf(item.firstElementChild.textContent.toLocaleLowerCase())!=-1){
-            item.style.display="initial"
+// const getElement = (name)=>{
+//     min.forEach(item=>{
+//         console.log(item.firstChild.textContent)
+//         if (name.toLowerCase().indexOf(item.firstElementChild.textContent.toLowerCase())!=-1){
+//             item.style.display="initial"
                      
-        }else{
-            
-            item.style.display="none"  
-
-        }
-
-
-
-    })
-    
-   
-
-}
+//         }else{
+//             item.style.display="none"  
+//         }
+//     })
+// }
 
 
 

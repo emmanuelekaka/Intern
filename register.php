@@ -53,7 +53,7 @@ include('./db/registerdBcon.php');
                     <div class="input">
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" id="name" placeholder="Doe" name="lname" aria-describedby="name" >
+                            <input type="text" class="form-control" id="lname" placeholder="Doe" name="lname" aria-describedby="lname" >
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@ include('./db/registerdBcon.php');
                     </div>
                 </div>
                 <div class="mt-4">
-                    <input type="submit" role="button" class="btn px-5 mb-1 rounded-pill bg-primary text-light" href="" value="Register" name="submit">
+                    <input type="submit" role="button" class="btn px-5 mb-1 rounded-pill bg-primary text-light" value="Register" name="register">
                 </div>
         </form>
     </div>
