@@ -64,7 +64,7 @@ if($db){
                       <th scope="row"><?php echo $item["business"];  ?></th>
                       <td><?php echo $item["Contact"];  ?></td>
                       <td><?php echo $item["Location"];  ?></td>
-                      <td><?php echo $item["business"];  ?></td>
+                      <td><?php echo $item["daily_sales"];  ?></td>
                       <!-- Button trigger modal -->
     
                       <td><a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#perform">performance</a></td>

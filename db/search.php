@@ -19,8 +19,11 @@ if ($result){
                     <td> ".$i['referalCode']."</td>
                     <td> ".$i['adminprevillages']."</td>
                     <!-- Button trigger modal -->
+
                     <td><a href=\"\" class=\"btn btn-success\"data-bs-toggle=\"modal\" data-bs-target=\"#staticBackdrop\">View</a> </td>
-                   <td class=\"edit\"><a href=\"#adjust\" class=\"btn text-start\"><i class=\"fa-solid fa-edit\"></i> <p class=\"d-none toEdit\">".$i['username']."</p></a></td>
+
+                   <td class=\"edit\"><a href=\"#adjust\" class=\"btn btn-transparent \"><i class=\"fa-solid fa-edit\"></i> <p class=\"d-none toEdit\">".$i['username']."</p></a></td>
+
                     <td>
                     <form action=\"./delete.php\" method=\"POST\">
                     <input  type=\"hidden\" name = \"id_del\" value=".$i['id'].">
