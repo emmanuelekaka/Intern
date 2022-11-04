@@ -19,10 +19,10 @@ if ($result){
                     <td> ".$i['referalCode']."</td>
                     <td> ".$i['adminprevillages']."</td>
                     <!-- Button trigger modal -->
+ 
+                    <td><a href=\"useradmin.php?id=".$i['id']."\" class=\"btn btn-success\"data-bs-toggle=\"modal\" data-bs-target=\"#staticBackdrop\">View</a> </td>
 
-                    <td><a href=\"\" class=\"btn btn-success\"data-bs-toggle=\"modal\" data-bs-target=\"#staticBackdrop\">View</a> </td>
-
-                   <td class=\"edit\"><a href=\"#adjust\" class=\"btn btn-transparent \"><i class=\"fa-solid fa-edit\"></i> <p class=\"d-none toEdit\">".$i['username']."</p></a></td>
+                   <td><a href=\"#adjust\" class=\"edit btn btn-transparent \"><i class=\"fa-solid fa-edit\"></i> <p class=\"d-none toEdit\">".$i['username']."</p></a></td>
 
                     <td>
                     <form action=\"./delete.php\" method=\"POST\">

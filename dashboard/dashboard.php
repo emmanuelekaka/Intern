@@ -7,7 +7,7 @@
         
 
     </div>
-    <div class="brief bg-secondary p-1">
+    <div class="brief p-1">
         <div class="rim">
             <h3 class="text-light">Vending Dashboard</h3>
             <div class="circle text-light">
