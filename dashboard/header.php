@@ -19,6 +19,7 @@
                  <i class="fa-solid fa-gauge" id="logo"></i>
                  <p class="p-head">DashBoard</p>
             </div>
+            <!-- Links for navigating between pages. -->
             <ul class="side-item2">
                
                
@@ -35,17 +36,15 @@
                 <li><i class="fa fa-sign-out me-2"></i><a href="../login.php">Logout</a></li>
 
             </ul>
+            <!-- Links for navigating between pages. -->
+
             <script src="../js/highlighter.js"></script>
         </div>
         <div class="main_main">
             <div class="header">
                 <p><a href="./dashboard.php">AGENT PANEL</a></p>
                 
-                <!-- <div>
-                    <a href="../login.php" class="logout">Logout</a>
-                    <a href="./userprofile.php" class="profile"><i class="fas fa-user" id="icon-logo"></i>Profile</a>
-
-                </div> -->
+                
                 
             </div>
             <div class="main_show">

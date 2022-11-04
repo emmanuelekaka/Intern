@@ -1,6 +1,11 @@
-const  highlight = document.querySelectorAll('.side-item2>li>a')
+// Highlighting of the nav items  in the sidebar on click
+const activepage = window.location;
+const  highlight = document.querySelectorAll('.side-item2>li>a');
 highlight.forEach(item=>{
-    item.addEventListener('click',()=>{
-        item.style.color='#ffffff'
-    })
-})
+
+        if (item.href.includes(activepage)){
+            item.style.color='#ffffff';
+        }else{
+            item.style.color='#ff0000';
+        }
+});
