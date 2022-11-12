@@ -31,25 +31,33 @@ if($db){
 <div class="userprofile p-3" >
     <h3 class="text-primary mb-2 p-3 bg-light border rounded-2" >@<?php echo $_SESSION['username'];?> USER PROFILE</h3>
     <div class="userinfor" id="blur">
-        <div class="portrait bg-dark mb-4">
+        <div class="portrait bg-dark mb-3">
             
         </div>
         
-        <div>
-            Phone Number
-            <div class="mb-2 fw-bolder dfw"><?php echo htmlspecialchars($item['tel']);?></div>
+        <form action="upload.php" method="post" enctype="multipart/form-data" class="border w-50 p-2 mb-3">
+            <input type="file" class="mb-2 form-control " name="file" >
+            <button type="submit" class="btn btn-primary upto" name="submit">set</button>
+        </form>
+        <div class="row w-50">
+            <div class="col">
+                 Phone Number
+                <div class="mb-2 fw-bolder dfw"><?php echo htmlspecialchars($item['tel']);?></div>
+            </div>
+            <div class="col">
+                Email
+                <div class="mb-2 fw-bolder dfw"><?php echo $item['email'];?></div>
+            </div>
         </div>
-        <div>
-            Email
-            <div class="mb-2 fw-bolder dfw"><?php echo $item['email'];?></div>
-        </div>
-        <div>
-            NIN
+        <div class="row w-50">
+            <div class="col">
+                 NIN
             <div class="mb-2 fw-bolder dfw"><?php echo $item['nin'];?></div>
-        </div>
-        <div>
-            ReferalCode
+            </div>
+            <div class="col">
+                ReferalCode
             <div class="mb-2 fw-bolder dfw"><?php echo $item['referalCode'];?></div>
+            </div>
         </div>
         
         <a id="blur" class="btn btn-primary update" onclick="toggleModal()">Edit</a>
