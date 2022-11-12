@@ -29,14 +29,19 @@ if($db){
 <!-- Default user profile -->
 <link rel="stylesheet" href="../static/profile.css">
 <div class="userprofile p-3" >
-    <h3 class="text-primary mb-2 p-3 bg-light border rounded-2" >@<?php echo $_SESSION['username'];?> USER PROFILE</h3>
+    <h3 class="text-primary mb-2 p-3 bg-light border rounded-2" >@c USER PROFILE</h3>
     <div class="userinfor" id="blur">
-        <div class="portrait bg-dark mb-3">
+        <div class="portrait mb-3">
+            <img src="../profile/<?php echo $item['pic'] ;?>" alt="">
+            <!-- <script>
+                console.log(document.queryselector('.portrait>img').src);
+            </script> -->
             
         </div>
         
-        <form action="upload.php" method="post" enctype="multipart/form-data" class="border w-50 p-2 mb-3">
+        <form action="../db/upload.php" method="post" enctype="multipart/form-data" class="border w-50 p-2 mb-3">
             <input type="file" class="mb-2 form-control " name="file" >
+            <input type="hidden" name="user" value="<?php echo $_SESSION['username'];?>">
             <button type="submit" class="btn btn-primary upto" name="submit">set</button>
         </form>
         <div class="row w-50">

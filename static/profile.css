@@ -16,6 +16,13 @@
     position:relative;
     border-top:3px solid red;
     border-bottom:3px solid blue;
+    overflow: hidden;
+    
+}
+.portrait img{
+    border-radius: 50%;
+    width:100%;
+    height: 100%;
 }
 .update{
     width:140px;
