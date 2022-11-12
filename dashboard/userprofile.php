@@ -59,12 +59,8 @@ if($db){
 
     <!-- Form for editing user inputs -->
     <form action="" method="post" class="inv">
-        <h1>Edit Your Profile</h1>
-        <!-- Username update -->
-        <div class="mb-1">
-            <label for="username" class="form-label">Username</label>
-            <input type="string" class="form-control" id="username" value="<?php echo $_SESSION['username'];?>">
-        </div>
+        <h1>Change Password</h1>
+        <h1>@<?php echo $_SESSION['username'];?></h1>
         <!-- Old password -->
         <div class="mb-1">
             <label for="exampleFormControlInput1" class="form-label">Old Password</label>

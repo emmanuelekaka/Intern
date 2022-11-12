@@ -5,12 +5,15 @@ const generateReferalCode = ()=>{
      referalCodeEcho +=choice[Math.floor(Math.random()*choice.length)]
     }
     return referalCodeEcho
-
 }
+
 const addReferal = document.querySelector('.gen')
 const include = document.querySelector('input[name="ref"]')
-
-addReferal.addEventListener('click', (e)=>{
-    include.value=generateReferalCode()
-
-})
+// Handled the exception of existence of a referal code already
+if (include.value === undefined){
+    addReferal.addEventListener('click', (e)=>{
+        include.value=generateReferalCode();
+    })
+}else{
+    include.readOnly = true;
+}

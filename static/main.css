@@ -15,8 +15,13 @@ form{
     /* color:#ffffff; */
 }
 .error{
-    width:80%;
-    background-color:#cc1200;
+    border-radius: 4px;
+    width:100%;
+    background-color:#FF6D00;
+    text-align:center;
+    font-family: 'open sans';
+    font-size: larger;
+    
 }
 
 .login{

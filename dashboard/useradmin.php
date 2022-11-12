@@ -1,165 +1,175 @@
 <?php include_once('./header.php');?>
+<?php
+$db = mysqli_connect('localhost', 'root', '','intern');
+
+if($db){
+    if (isset($_GET['id'])){
+      $id = mysqli_real_escape_string($db, $_GET['id']);
+      // echo $id;
+      // Querying single fields of uername and reference
+      $namelite = "SELECT username,referalCode from users where id='$id';";
+      $ref = "SELECT referalCode from users where id='$id';";
+      $user = mysqli_query($db, $namelite);
+      $userquery = mysqli_query($db, $ref);
+      $userdt = '';
+      $userref = '';
+      // convertuing the querried into strings
+      $userdt =  $user->fetch_array()[0];
+      $userref =  $userquery->fetch_array()[0];
+
+      $sqlit = "SELECT username, email,tel, locality, referal from users where referal=(SELECT referalCode from users where id='$id');";
+      if (mysqli_query($db, $sqlit)){
+        $result = mysqli_query($db, $sqlit);
+        $table =mysqli_fetch_all($result, MYSQLI_ASSOC);
+        //free results from memory
+        mysqli_free_result($result);
+        //close database 
+      }
+      $sql = "SELECT id, business, Contact, Location, daily_sales, referal,time from business WHERE  referal = (SELECT referalCode from users where id='$id');";
+      $output = mysqli_query($db, $sql);
+      // print_r($output);
+      if ($output){
+        if (mysqli_num_rows($output)>0){
+            $data =mysqli_fetch_all($output, MYSQLI_ASSOC);
+            mysqli_free_result($output);
+        }else{
+          $data = null;
+        }
+      }
+    }
+}else{
+  echo "server error";
+}
+ 
+  mysqli_close($db);
+?>
+<div class="ref d-none" ><?php echo $_SESSION['ref'];?></div>
 <div class="stable">
   <div class="filter d-flex mb-3 p-3 bg-light border rounded-2">
-    <h4 class="col-8 fw-bolder text-success">User Details</h4>
-    <input type="search" placeholder="search" id="search" class="col-4 custom rounded-pill ps-2">
+    <h4 class="col-8 fw-bolder text-success">@<?php echo $userdt;?> User Details</h4>
   </div>
+  <!-- Transactions -->
   
-<table class="table p-3 bg-light border rounded-2">
-  <thead>
-    <tr>
-      
-      <th scope="col">Username</th>
-      <th scope="col">Email</th>
-      <th scope="col">Referred</th>
-      <th scope="col">Account Status</th>
-      <th scope="col">User Code</th>
-      <th scope="col">Previllages</th>
-      <th scope="col">UserDetail</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody id="output">
+    <div class="accordion mb-2" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#call" aria-expanded="false" aria-controls="call">
+              <h2>Businesses  Connected</h2>
+          </button>
+        </h2>
+        <div id="call" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+          
+              <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-success  size">Business Name</th>
+                  <th scope="col" class="text-success size">Contact</th>
+                  <th scope="col" class="text-success size">Location</th>
+                  <th scope="col" class="text-success size">Daily Sales</th>
+                  <th scope="col" class="text-success size">Performance</th>
+                </tr>
+              </thead>
+              <tbody>
+                  
+                <!-- Fetching data to display on the interface. -->
+                <?php if($data):?>
+               
+                <?php foreach($data as $item):?>
+                    <tr>
+                      <th scope="row"><?php echo $item["business"];  ?></th>
+                      <td><?php echo $item["Contact"];  ?></td>
+                      <td><?php echo $item["Location"];  ?></td>
+                      <td><?php echo $item["daily_sales"];  ?></td>
+                      <!-- Button trigger modal -->
     
-  </tbody>
-</table>
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">@View</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body bg-dark ">
-                  <table class="table text-light text-center">
-                    <tbody>
-                      <tr>
-                        <th scope="row">Name</th>
-                        <td>Taibo</td>
-                        
-                      </tr>
-                      <tr>
-                        <th scope="row">Surname</th>
-                        <td>taibo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Email</th>
-                        <td>taibo@gmail.com</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Referal</th>
-                        <td>To04fc</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Contact</th>
-                        <td>0777119929</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Location</th>
-                        <td>Banda</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Nin</th>
-                        <td>CM0006756ADX</td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a type="button" class="btn btn-primary">Download Details</a>
-              </div>
-            </div>
+                      <td><a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#perform">performance</a></td>
+                    </tr>
+                <?php endforeach;?>
+                <?php endif;?>
+                
+              </tbody>
+            </table>
           </div>
         </div>
-    <div class="adjust " id="adjust">
-      <h4 class="fw-bolder text-success p-3 bg-light border rounded-2">ADMIN APPROVAL</h4>
-      <p class="querryName display-6 text-primary"></p>
-    <table class="table p-3 bg-light border rounded-2">
-        <thead>
-          
-            <tr>
-              <th scope="col">Assign Account Status</th>
-              <th scope="col">Assign Referal Code</th>
-              <th scope="col">Assign administrative  Previllages</th>
-              <th scope="col">Save</th>
-            </tr>
-          </thead>
-          <tbody>
-            <form action="./updateWzRef.php" method="post">
-                <tr>
-                    <td>
-                      <select class="form-select" name="status">
-                        <option selected>select</option >
-                        <option value="Active">Active</option>
-                        <option value="Suspended">Suspended</option>
-                        <option value="Inactive">Inactive</option>
-                      </select>
-                    </td>
-                    <td><div class="generate">
-                      <input type="text" class="form-control" placeholder="AX56rY" name="ref"><i class="fa-solid fa-computer-mouse ms-3 text-primary gen"></i>
-                    </div></td>
-                    <td>
-                      <select class="form-select" name="previllage">
-                        <option selected>select</option>
-                        <option value="user">user</option>
-                        <option value="admin">admin</option>
-                      </select>
-                    </td>
-                    <!-- Updating fields to add in referal code. and previllages button -->
-                    <td>
-                      <input  type="hidden" name = "update" class="updateName">
-                      <button type="submit" name= "edit" class="btn btn-transparent" ><i class="fa-solid fa-folder text-primary"></i></button>
-                      
-                    </td>
-                </tr>
-              </form>
-        </tbody>
-    </table>
-    </div>
-    </div>
-    
-      
-        
       </div>
-    
+    </div>
+
+    <!-- Business Transactions -->
+    <div class="accordion mb-2" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stat" aria-expanded="false" aria-controls="stat">
+              <h2>Businesses  Statistics</h2>
+          </button>
+        </h2>
+        <div id="stat" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="barchart">
+
+            <div  class="mb-2 p-2 bg-light border rounded-2 d-flex justify-content-between">
+                <h4 >Line Graph</h4>
+                <input type="search" name="month" id="month" class="getdb px-2 me-1" style="width:200px;border-radius:6px; outline:none;" placeholder="2022/08 (yyyy/mm)">
+            </div>
+            <canvas id="dream"class="charts mb-2 p-3 bg-light border rounded-2" >
+            </canva>
+
+        </div>
+          
+              
+                  
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- connected -->
+  <div class="accordion mb-2" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <h2>Agents Referred</h2>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+          
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"class="text-success  size">Vendor Name</th>
+                    <th scope="col"class="text-success  size">Email</th>
+                    <th scope="col"class="text-success  size">Location</th>
+                    <th scope="col"class="text-success  size">Phone Number</th>
+                    <th scope="col"class="text-success  size">Commission</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach($table as $i):?>
+                      <tr>
+                        <th scope="row"><?php echo $i['username'];?></th>
+                        <td><?php echo $i['email'];?></td>
+                        <td><?php echo $i['locality'];?></td>
+                        <td><?php echo $i['tel'];?></td>
+                        <td>5000</td>
+                      </tr>
+                     
+                  <?php endforeach;?>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- connected -->
 
 
 
-
-
-
+</div>
+<script src="../js/chart.min.js"></script>
 
 <script src="../js/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-      $.ajax({
-                type:'GET',
-                url:'../db/search.php',
-                success:function(data){
-                  $("#output").html(data);
-                  
-                }
-      });
-      // Executed during searching of a particular record
-      $("#search").keyup(function(){
-          $.ajax({
-                type:'POST',
-                url:'../db/search.php',
-                data:{
-                  name:$("#search").val(),
-                },
-                success:function(data){
-                  $("#output").html(data);
-                  
-                }
-          });
-      });
-      
-    });
-</script>
-<script src="../js/adjust.js"></script>
-<script src="../js/refer.js"></script>
+<script src="../js/line.js"></script>
+<script src = "../static/js/bootstrap.bundle.min.js"></script>
 <?php include_once('./footer.php');?>

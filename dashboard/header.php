@@ -22,17 +22,24 @@
             <!-- Links for navigating between pages. -->
             <ul class="side-item2">
                
-               
+               <?php if ($_SESSION['previlleges']=="user"){?>
                 <li><i class="fa fa-money-bill me-2"></i><a href="./statistics">Incomes</a></li>
                 <li><i class="fa fa-line-chart me-2"></i><a href="./transactions">Businesses</a></li>
+                <?php }?>
                 
                  <?php if ($_SESSION['previlleges']=="admin"){?>
-                    <li><i class="fa fa-users me-2"></i><a href="./useradmin">Users</a></li>
-                
+                    <!-- user link -->
+                    <li><i class="fa fa-users me-2"></i><a href="./adminuserdetail">Users</a></li>
+                    <!-- User Detail link -->
+                    <!-- <li><i class="fa fa-user me-2"></i><a href="./useradmin">UserDetail</a></li> -->
+                    <!-- more link -->
                     <li><i class="fa fa-angles-right me-2"></i><a href="./adminmore">More</a></li>
+                    <!-- User logs link -->
                     <li><i class="fa fa-magic-wand-sparkles me-2"></i><a href="./adminlogs">Logs</a></li>
                  <?php }?>
+                 <!-- profile link -->
                  <li><i class="fa fa-user me-2"></i><a href="./userprofile.php">Profile</a></li>
+                 <!-- Logout link -->
                 <li><i class="fa fa-sign-out me-2"></i><a href="../login.php">Logout</a></li>
 
             </ul>
@@ -42,7 +49,8 @@
         </div>
         <div class="main_main">
             <div class="header">
-                <p><a href="./dashboard.php">AGENT PANEL</a></p>
+                <i class="fa fa-bars fs-4 text-danger me-5" id="controller"></i>
+                <a href="./dashboard.php">AGENT PANEL</a>
                 
                 
                 

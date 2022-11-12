@@ -72,8 +72,6 @@ if($db){
                   <?php } ?>
                 <?php endforeach;?>
                 
-                
-             
               </tbody>
             </table>
           </div>
@@ -101,7 +99,8 @@ if($db){
     <script type="text/javascript">
     //modal auto load
       $(window).on('load', function() {
-        // $('#exampleModal').modal('show');
+        $('#perform').modal('show');
+
       });
     </script>
 
@@ -144,107 +143,9 @@ if($db){
       </div>
     </div>
 
-
-
-  <!-- <div class="bg-light border rounded-1 p-2">
-      <h2>Businesses  Connected</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Business Name</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Location</th>
-            <th scope="col">Sales</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Banda Community Center</th>
-            <td>+256783456473</td>
-            <td>Banda</td>
-            <td>shs.1000000</td>
-          </tr>
-          <tr>
-            <th scope="row">Banda Computer Center</th>
-            <td>+256783456473</td>
-            <td>Banda</td>
-            <td>shs.0</td>
-          </tr>
-          <tr>
-            <th scope="row">Glossam Holdings</th>
-            <td>+256783456473</td>
-            <td>Banda</td>
-            <td>shs.340000</td>
-          </tr>
-          <tr>
-            <th scope="row">7 DAIZ</th>
-            <td>+256783456473</td>
-            <td>Banda</td>
-            <td>shs.300000</td>
-          </tr>
-          <tr>
-            <th scope="row">BAHE</th>
-            <td>+256783456473</td>
-            <td>Banda</td>
-            <td>shs.200000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="bg-light border rounded-1 p-2 mt-2">
-      <h2>Vendors Referred</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Vendor Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Location</th>
-            <th scope="col">Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Ekaka</th>
-            <td>ekaka@gmail.com</td>
-            <td>Kyambogo</td>
-            <td>+256783456473</td>
-          </tr>
-          <tr>
-            <th scope="row">Timo</th>
-            <td>timo@gmail.com</td>
-            <td>Kawempe</td>
-            <td>+256783456473</td>
-          </tr>
-          <tr>
-            <th scope="row">Bwayo</th>
-            <td>bwayo@gmail.com</td>
-            <td>Banda</td>
-            <td>+256783456473</td>
-          </tr>
-          <tr>
-            <th scope="row">Stark</th>
-            <td>stark@gmail.com</td>
-            <td>Kireka</td>
-            <td>+256783456473</td>
-          </tr>
-          <tr>
-            <th scope="row">Morbious</th>
-            <td>morbious@gmail.com</td>
-            <td>Kiwatule</td>
-            <td>+256783456473</td>
-          </tr>
-        </tbody>
-      </table>
-  </div> -->
-
 </div>
 
-
-
-
-
-
-
-
+<script src="../js/jquery.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
 
 <?php include_once('./footer.php')?>
