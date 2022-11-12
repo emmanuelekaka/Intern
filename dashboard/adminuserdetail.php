@@ -145,6 +145,8 @@
           $('#emailField').val(json.email);
           $('#mobileField').val(json.tel);
           $('#referalCode').val(json.referalCode);
+          $('#status').val(json.status);
+          $('#admin').val(json.referalCode);
           $('#id').val(id);
           $('#trid').val(trid);
         }
@@ -221,9 +223,9 @@
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="referalCode" class="col-md-3 form-label">Asign Admin previllages</label>
+              <label for="referalCode" class="col-md-3 form-label">Account Status</label>
               <div class="col-md-9">
-                <select class="form-select" name="status">
+                <select class="form-select" name="status" id = "status">
                         <option selected>select</option >
                         <option value="Active">Active</option>
                         <option value="Suspended">Suspended</option>
@@ -232,9 +234,9 @@
               </div>
             </div>
             <div class="mb-3 row">
-              <label for="referalCode" class="col-md-3 form-label">Account Status</label>
+              <label for="referalCode" class="col-md-3 form-label">Asign Admin previllages</label>
               <div class="col-md-9">
-                <select class="form-select" name="previllage">
+                <select class="form-select" name="previlleges" id ="previlleges">
                         <option selected>select</option>
                         <option value="user">user</option>
                         <option value="admin">admin</option>

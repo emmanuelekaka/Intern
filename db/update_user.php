@@ -4,9 +4,11 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 $tel = $_POST['mobile'];
 $referalCode = $_POST['referalCode'];
+$adminprevillages = $_POST['adminprevillages'];
+$status = $_POST['status'];
 $id = $_POST['id'];
 
-$sql = "UPDATE `users` SET  `username`='$username' , `email`= '$email', `tel`='$mobile',  `referalCode`='$referalCode' WHERE id='$id' ";
+$sql = "UPDATE `users` SET  `username`='$username' , `email`= '$email', `tel`='$mobile', `status`='$status',`adminprevillege`='$adminprevillege',`referalCode`='$referalCode' WHERE id='$id' ";
 $query= mysqli_query($db,$sql);
 $lastId = mysqli_insert_id($db);
 if($query ==true)

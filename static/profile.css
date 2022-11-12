@@ -17,16 +17,6 @@
     border-top:3px solid red;
     border-bottom:3px solid blue;
 }
-.uname{
-    position:absolute;
-    top:25%;
-    left:45%;
-    color:green;
-    background-color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
 .update{
     width:140px;
 }

@@ -29,10 +29,10 @@ if($db){
 <!-- Default user profile -->
 <link rel="stylesheet" href="../static/profile.css">
 <div class="userprofile p-3" >
-    <h3 class="text-primary mb-2 p-3 bg-light border rounded-2" >USER PROFILE</h3>
+    <h3 class="text-primary mb-2 p-3 bg-light border rounded-2" >@<?php echo $_SESSION['username'];?> USER PROFILE</h3>
     <div class="userinfor" id="blur">
-        <div class="portrait bg-dark">
-            <div class="uname rounded-pill display-5 fw-bolder"><?php echo $_SESSION['username'];?></div>
+        <div class="portrait bg-dark mb-4">
+            
         </div>
         
         <div>
