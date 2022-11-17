@@ -115,7 +115,7 @@
           $('#mobileField').val(json.tel);
           $('#referalCode').val(json.referalCode);
           $('#status').val(json.status);
-          $('#admin').val(json.referalCode);
+          $('#previlleges').val(json.adminprevillege);
           $('#id').val(id);
           $('#trid').val(trid);
         }
