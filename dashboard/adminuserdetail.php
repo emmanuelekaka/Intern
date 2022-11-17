@@ -1,4 +1,4 @@
-<?php include_once('./header.php')?> 
+<?php include('./header.php');?> 
 <link rel="stylesheet" href="../static/css/datatables-1.10.25.min.css" type="text/css">
     <div class="row">
         <div class="container">
@@ -54,38 +54,7 @@
         ]
       });
     });
-    // $(document).on('submit', '#addUser', function(e) {
-    //   e.preventDefault();
-    //   var referalCode = $('#addreferalCode').val();
-    //   var username = $('#addUserField').val();
-    //   var tel = $('#addMobileField').val();
-    //   var email = $('#addEmailField').val();
-    //   if (referalCode != '' && username != '' && tel != '' && email != '') {
-    //     $.ajax({
-    //       url: "../db/add_user.php",
-    //       type: "post",
-    //       data: {
-    //         referalCode: referalCode,
-    //         username: username,
-    //         mobile: tel,
-    //         email: email
-    //       },
-    //       success: function(data) {
-    //         var json = JSON.parse(data);
-    //         var status = json.status;
-    //         if (status == 'true') {
-    //           mytable = $('#example').DataTable();
-    //           mytable.draw();
-    //           $('#addUserModal').modal('hide');
-    //         } else {
-    //           alert('failed');
-    //         }
-    //       }
-    //     });
-    //   } else {
-    //     alert('Fill all the required fields');
-    //   }
-    // });
+    
     $(document).on('submit', '#updateUser', function(e) {
       e.preventDefault();
       //var tr = $(this).closest('tr');
@@ -108,8 +77,8 @@
           },
           success: function(data) {
             var json = JSON.parse(data);
-            var status = json.status;
-            if (status == 'true') {
+            var statu = json.statu;
+            if (statu == 'true') {
               // Paginated table
               table = $('#example').DataTable();
 
@@ -166,8 +135,8 @@
           type: "post",
           success: function(data) {
             var json = JSON.parse(data);
-            status = json.status;
-            if (status == 'success') {
+            statu = json.statu;
+            if (statu == 'success') {
               //table.fnDeleteRow( table.$('#' + id)[0] );
               //$("#example tbody").find(id).remove();
               //table.row($(this).closest("tr")) .remove();

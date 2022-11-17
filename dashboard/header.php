@@ -23,24 +23,24 @@
             <ul class="side-item2">
                
                <?php if ($_SESSION['previlleges']=="user"){?>
-                <li><i class="fa fa-money-bill me-2"></i><a href="./statistics">Incomes</a></li>
-                <li><i class="fa fa-line-chart me-2"></i><a href="./transactions">Businesses</a></li>
+                <li><i class="fa fa-money-bill me-2"></i><a href="./statistics"><span>Incomes</span></a></li>
+                <li><i class="fa fa-line-chart me-2"></i><a href="./transactions"><span>Businesses</span></a></li>
                 <?php }?>
                 
                  <?php if ($_SESSION['previlleges']=="admin"){?>
                     <!-- user link -->
-                    <li><i class="fa fa-users me-2"></i><a href="./adminuserdetail">Users</a></li>
+                    <li><i class="fa fa-users me-2"></i><a href="./adminuserdetail"><span>Users</span></a></li>
                     <!-- User Detail link -->
                     <!-- <li><i class="fa fa-user me-2"></i><a href="./useradmin">UserDetail</a></li> -->
                     <!-- more link -->
-                    <li><i class="fa fa-angles-right me-2"></i><a href="./adminmore">More</a></li>
+                    <li><i class="fa fa-angles-right me-2"></i><a href="./adminmore"><span>More</span></a></li>
                     <!-- User logs link -->
-                    <li><i class="fa fa-magic-wand-sparkles me-2"></i><a href="./adminlogs">Logs</a></li>
+                    <li><i class="fa fa-magic-wand-sparkles me-2"></i><a href="./adminlogs"><span>Logs</span></a></li>
                  <?php }?>
                  <!-- profile link -->
-                 <li><i class="fa fa-user me-2"></i><a href="./userprofile.php">Profile</a></li>
+                 <li><i class="fa fa-user me-2"></i><a href="./userprofile.php"><span>Profile</span></a></li>
                  <!-- Logout link -->
-                <li><i class="fa fa-sign-out me-2"></i><a href="../login.php">Logout</a></li>
+                <li><i class="fa fa-sign-out me-2"></i><a href="../login.php"><span>Logout</span></a></li>
 
             </ul>
             <!-- Links for navigating between pages. -->
@@ -49,7 +49,7 @@
         </div>
         <div class="main_main">
             <div class="header">
-                <i class="fa fa-bars fs-4 text-danger me-5" id="controller"></i>
+                <i class="fa fa-bars fs-4 me-5" id="controller"></i>
                 <a href="./dashboard.php">AGENT PANEL</a>
                 
                 

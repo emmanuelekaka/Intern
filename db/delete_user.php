@@ -7,7 +7,7 @@ $delQuery =mysqli_query($db,$sql);
 if($delQuery==true)
 {
 	 $data = array(
-        'status'=>'success',
+        'statu'=>'success',
        
     );
 
@@ -16,7 +16,7 @@ if($delQuery==true)
 else
 {
      $data = array(
-        'status'=>'failed',
+        'statu'=>'failed',
       
     );
 

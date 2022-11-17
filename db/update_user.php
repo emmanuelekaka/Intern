@@ -15,7 +15,8 @@ if($query ==true)
 {
    
     $data = array(
-        'status'=>'true',
+        // renamed status statu to avoid collision with the database field.
+        'statu'=>'true',
        
     );
 
@@ -24,7 +25,7 @@ if($query ==true)
 else
 {
      $data = array(
-        'status'=>'false',
+        'statu'=>'false',
       
     );
 
