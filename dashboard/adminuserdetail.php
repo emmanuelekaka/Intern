@@ -58,22 +58,26 @@
     $(document).on('submit', '#updateUser', function(e) {
       e.preventDefault();
       //var tr = $(this).closest('tr');
-      let referalCode = $('#referalCode').val();
-      let username = $('#nameField').val();
-      let tel = $('#mobileField').val();
+      let uname = $('#nameField').val();
       let email = $('#emailField').val();
+      let tel = $('#mobileField').val();
+      let referalCode = $('#referalCode').val();
+      let status = $('#status').val();
+      let adminprevillages = $('#previlleges').val();
       let trid = $('#trid').val();
       let id = $('#id').val();
-      if (referalCode != '' && username != '' && tel != '' && email != '') {
+      if (referalCode != '' && uname != '' && tel != '' && email != '') {
         $.ajax({
           url: "../db/update_user.php",
           type: "post",
           data: {
-            referalCode: referalCode,
-            username: username,
-            tel: tel,
+            id: id,
+            uname: uname,
             email: email,
-            id: id
+            tel: tel,
+            referalCode: referalCode,
+            status: status,
+            adminprevillages: adminprevillages,
           },
           success: function(data) {
             var json = JSON.parse(data);
@@ -84,7 +88,7 @@
 
               var button = '<td><a href="javascript:void();" data-id="' + id + '" class="btn btn-info btn-sm editbtn">Edit</a>  <a href="#!"  data-id="' + id + '"  class="btn btn-danger btn-sm deleteBtn">Delete</a></td>';
               var row = table.row("[id='" + trid + "']");
-              row.row("[id='" + trid + "']").data([id, username, email, tel, referalCode, button]);
+              row.row("[id='" + trid + "']").data([id, uname, email, tel, referalCode, button]);
               $('#exampleModal').modal('hide');
             } else {
               alert('failed');
@@ -115,7 +119,7 @@
           $('#mobileField').val(json.tel);
           $('#referalCode').val(json.referalCode);
           $('#status').val(json.status);
-          $('#previlleges').val(json.adminprevillege);
+          $('#previlleges').val(json.adminprevillages);
           $('#id').val(id);
           $('#trid').val(trid);
         }
